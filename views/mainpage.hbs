@@ -2,7 +2,15 @@
 <html>
     <head>
         <title>Weather Getter</title>
-       
+       	<style>
+       		#galleryButton {
+  			position: absolute;
+  			right: 40%;
+  			top: 10px;
+  			width: 300px;
+  			height: 50px;
+			}
+       	</style>
     </head>
     
     <body>
@@ -14,13 +22,25 @@
                     
                 <input name="userLong" class="userInp" id="long"  type="text" placeholder="Longitude" required>
                     
-                <input id="loginButton" type="submit" value="Get Weather"/>
+                <input id="weatherButton" type="submit" value="Get Weather"/>
+            </form>
+
+            <form action="/gallery" id="getWeather" method="get">
+                    
+                <input id="galleryButton" type="submit" value="View Image Gallery"/>
             </form>
         </div>
         <div>The Time Zone is: {{timezone}}</div>
         <div>The Summary is: {{summary}}</div>
         <div>The Temperature is: {{temperature}}</div>
-
+        <div>The icon is: {{icon}}</div>
+        <div id="foo">
+        	<img src="img/rain.JPG"/>
+        </div>
+		<script>
+  			var name = {{icon}}
+  			console.log(name);
+		</script>
     </body>
     
 </html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        div.gallery {
+  top:200px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+
+          #galleryButton {
+        position: absolute;
+        right: 40%;
+        top: 10px;
+        width: 300px;
+        height: 50px;
+      }
+
+      #wholething {
+        position: absolute;
+        top: 100px;
+
+      }
+
+</style>
+</head>
+
+<body>
+    <h1>Gallery</h1>
+    <form action="/" id="getWeather" method="get">
+        <input id="galleryButton" type="submit" value="Return to Weather Getter" />
+    </form>
+    
+    <form action="/" id="getImages" method="post">
+                    
+    <input name="userSearch" class="userInp" id="search" type="text" placeholder="Type an image name" required>
+                    
+    <input id="searchImageButton" type="submit" value="Search Images"/>
+    </form>
+<div id="wholething">
+    <div class="gallery">
+        <a target="_blank" href="fjords.jpg">
+    <img src="https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fcdn-image.travelandleisure.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1600x1000%2Fpublic%2F1481308082%2Fhero-riomaggiore-cinque-terre-italy-CINQUE1206.jpg%3Fitok%3Dnzt6KuDk&w=1000&c=sc&poi=face&q=70" alt="Cinque Terre" width="300" height="200">
+
+
+  </a>
+        <div class="desc">Picture of Cinque Terre"</div>
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="forest.jpg">
+    <img src="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/2018/europeslostf.jpg" alt="Forest" width="300" height="200">
+  </a>
+        <div class="desc">A Forest</div>
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="lights.jpg">
+    <img src="https://adventures.is/wp-content/uploads/2017/02/Northern-Lights-Super-Jeep-Tour15-1200x800.jpg" alt="Northern Lights" width="300" height="200">
+  </a>
+        <div class="desc">Northern Lights</div>
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="mountains.jpg">
+    <img src="https://cdn.cnn.com/cnnnext/dam/assets/170407220921-07-iconic-mountains-pitons-restricted.jpg" alt="Mountains" width="300" height="200">
+  </a>
+        <div class="desc">Mountains</div>
+    </div>
+  </div>
+  <script>
+    fetch('https://jsonplaceholder.typicode.com/photos')
+    .then(response => response.json())
+    .then(json => console.log(response.json.[0]))
+
+  </script>
+</body>
+
+</html>
+
