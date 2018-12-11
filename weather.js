@@ -9,9 +9,10 @@ var getWeather = (longitude, latitude, callback) => {
             callback('The given location is invalid.')
         } else {
             callback(undefined, {
+                timezone: body.timezone,
                 summary: body.currently.summary,
                 temperature: body.currently.temperature
-
+                
 
             });
         }
