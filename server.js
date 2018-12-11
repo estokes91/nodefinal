@@ -28,6 +28,16 @@ app.get('/weather/:longitude/:latitude', (request, response) => {
 	});
 });
 
+app.post('/', urlencodedParser, (request, response) => {
+	geocode.getWeather(request.body.userLat, request.body.userLong, (errorMessage, results) => {
+	if (errorMessage) {
+		response.send(errorMessage);
+	} else {
+		response.send(JSON.stringify(results, undefined, 2));
+	}
+	});
+});	
+
 app.route({
   method: 'GET',
   path: '/',

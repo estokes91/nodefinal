@@ -6,8 +6,17 @@
     </head>
     
     <body>
-        <h1>this is my website</h1>
-        
+        <h1>Weather Getter</h1>
+        <div id="controls">
+            <form action="/" id="getWeather" method="post">
+                    
+                <input name="userLat" class="userInp" id="lat" type="text" placeholder="Latitude" required>
+                    
+                <input name="userLong" class="userInp" id="long"  type="text" placeholder="Longitude" required>
+                    
+                <input id="loginButton" type="submit" value="Get Weather"/>
+            </form>
+        </div>
     </body>
     
 </html>
