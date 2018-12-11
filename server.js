@@ -40,19 +40,46 @@ app.get('/', (request, response) => {
 // 	});
 // });	
 
+// app.post('/', urlencodedParser, (request, response) => {
+// 	geocode.getWeather(request.body.userLat, request.body.userLong, (errorMessage, results) => {
+// 	if (errorMessage) {
+// 		response.send(errorMessage);
+// 	} else {
+// 		response.render('mainpage.hbs', {
+// 			timezone: JSON.stringify(results.timezone, undefined, 2),
+// 			summary: JSON.stringify(results.summary, undefined, 2),
+// 			temperature: JSON.stringify(results.temperature, undefined, 2)
+// 		})
+// 	}
+// 	});
+// });	
+
+
+// app.post('/', urlencodedParser, (request, response) => {
+//     geocode.getWeather(request.body.userLat, request.body.userLong).then((results) => {
+//         response.render('mainpage.hbs', {
+// 			timezone: JSON.stringify(results.timezone, undefined, 2),
+// 			summary: JSON.stringify(results.summary, undefined, 2),
+// 			temperature: JSON.stringify(results.temperature, undefined, 2)
+//     }).catch((error) => {
+//         response.send('Error: ', error);	
+//     });
+// });
+
+
+
 app.post('/', urlencodedParser, (request, response) => {
-	geocode.getWeather(request.body.userLat, request.body.userLong, (errorMessage, results) => {
-	if (errorMessage) {
-		response.send(errorMessage);
-	} else {
-		response.render('mainpage.hbs', {
-			timezone: JSON.stringify(results.timezone, undefined, 2),
-			summary: JSON.stringify(results.summary, undefined, 2),
-			temperature: JSON.stringify(results.temperature, undefined, 2)
-		})
-	}
-	});
-});	
+    geocode.getWeather(request.body.userLat, request.body.userLong).then((result) => {
+        // response.send(`The temperature is ${result.timezone} and is ${result.summary}`);
+        response.render('mainpage.hbs', {
+        	timezone: `${result.timezone}`,
+        	summary: `${result.summary}`,
+        	temperature: `${result.temperature}`
+        })
+    }).catch((error) => {
+        response.send('Error: ', error);
+    });
+});
 
 app.route({
   method: 'GET',
